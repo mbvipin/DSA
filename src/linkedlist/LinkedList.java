@@ -1,3 +1,5 @@
+package linkedlist;
+
 public class LinkedList {
 
     private Node head;
@@ -37,7 +39,7 @@ public class LinkedList {
         else
         {
             Node newNode=new Node(data);
-            // Node 1--> Node 2--> Node 2.1-->Node 3--> Node 4
+            // linkedlist.Node 1--> linkedlist.Node 2--> linkedlist.Node 2.1-->linkedlist.Node 3--> linkedlist.Node 4
             // Find node at index-1
 
             Node node=this.findNodeAtIndex(index-1);
@@ -92,8 +94,8 @@ public class LinkedList {
         else
         {
 
-            // Node 1--> Node 2--> Node 2.1-->Node 3--> Node 4 -->
-            // Node 1 --> Node 2--> Node 3--> Node 4
+            // linkedlist.Node 1--> linkedlist.Node 2--> linkedlist.Node 2.1-->linkedlist.Node 3--> linkedlist.Node 4 -->
+            // linkedlist.Node 1 --> linkedlist.Node 2--> linkedlist.Node 3--> linkedlist.Node 4
 
             // Find node at index-1
             Node node=this.findNodeAtIndex(index-1);

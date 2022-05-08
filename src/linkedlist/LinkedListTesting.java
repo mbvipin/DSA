@@ -1,4 +1,6 @@
+package linkedlist;
 
+import linkedlist.LinkedList;
 
 public class LinkedListTesting {
 
@@ -30,8 +32,8 @@ public class LinkedListTesting {
     }
 
     private static void printResults (LinkedList linkedList) {
-        System.out.println(" is LinkedList Empty?  "+ linkedList.isEmpty());
+        System.out.println(" is linkedlist.LinkedList Empty?  "+ linkedList.isEmpty());
         System.out.println(" Size is equal to  "+ linkedList.size());
-        System.out.println(" LinkedList  elements in order "+ linkedList.toString());
+        System.out.println(" linkedlist.LinkedList  elements in order "+ linkedList.toString());
     }
 }
