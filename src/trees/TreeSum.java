@@ -66,17 +66,10 @@ public class TreeSum {
         int sum=0;
         if( root==null)
         {
-            return 0;
+            return sum;
         }
 
-        sum=sum+root.data;
-
-        sum=sum+ treesum(root.left);
-        sum=sum+treesum(root.right);
-
-
-
-        return sum;
+        return root.data+treesum(root.left)+treesum(root.right);
 
     }
 }
