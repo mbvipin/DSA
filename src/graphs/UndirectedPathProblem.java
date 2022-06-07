@@ -1,6 +1,10 @@
 package graphs;
 
+import graphs.utils.GraphUtils;
+
 import java.util.*;
+
+
 
 public class UndirectedPathProblem {
 
@@ -8,6 +12,7 @@ public class UndirectedPathProblem {
 
 
 
+        GraphUtils utils=new GraphUtils();
         List<Edge<String>> edges=new LinkedList<>();
 
         edges.add(new Edge<>("i","j"));
@@ -17,7 +22,7 @@ public class UndirectedPathProblem {
 
 
 
-       Graph<String> graph= buildGraph(edges);
+       Graph<String> graph= utils.buildGraph(edges);
 
        Set<String> visited=new HashSet<>();
 
@@ -63,12 +68,5 @@ public class UndirectedPathProblem {
         return false;
     }
 
-    private static Graph<String> buildGraph(List<Edge<String>> edges) {
 
-        Graph<String> graph=new Graph(edges.size());
-
-        edges.forEach(edge-> graph.addBidirectionalEdge(edge.getStart(),edge.getEnd()));
-
-        return graph;
-    }
 }

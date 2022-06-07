@@ -35,7 +35,15 @@ public class Graph<E> {
         adjacencyMap.get(source).add(dest);
     }
 
-    public void addBidirectionalEdge(E source,E dest)
+    public Map<E, List<E>> getAdjacencyMap() {
+        return adjacencyMap;
+    }
+
+    public void setAdjacencyMap(Map<E, List<E>> adjacencyMap) {
+        this.adjacencyMap = adjacencyMap;
+    }
+
+    public void addBidirectionalEdge(E source, E dest)
     {
 
         addEdge(source,dest);
