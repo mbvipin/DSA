@@ -3,12 +3,7 @@ package graphs;
 import graphs.model.TwoDArray;
 import graphs.utils.GraphUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Stack;
-
-public class IslandCount {
+public class MinimumIslandCount {
 
     public static void main(String[] args) {
 
@@ -16,21 +11,24 @@ public class IslandCount {
 
         String [] [] inputArray=input.addListToArray(String.class,  GraphUtils.createGrid());
 
+        int minCount=Integer.MAX_VALUE;
+
         int rowCount= inputArray.length;
         int colCount=inputArray[0].length;
 
         int [][] visited=input.getArrayFilledWithZeros(rowCount,colCount);
 
-        int count=0;
-
         for (int i = 0; i < inputArray.length; i++) {
 
             for (int j = 0; j < inputArray[i].length; j++) {
 
-                if(depthFirstSearch(inputArray,i,j,visited))
+                int count=getCountinIsland(inputArray,i,j,visited);
+
+                if(count >0 && count < minCount)
                 {
-                    count++;
+                    minCount=count;
                 }
+
 
             }
 
@@ -38,36 +36,37 @@ public class IslandCount {
 
         }
 
+        System.out.println(minCount);
 
-        System.out.println(count);
+
 
     }
 
-    private static boolean depthFirstSearch(String[][] inputArray, int row, int col, int[][] visited) {
+    private static int getCountinIsland(String[][] inputArray, int row, int col, int[][] visited) {
+
+        int count=0;
 
         if( row <0 || row >=inputArray.length || col <0 || col >=inputArray[row].length)
         {
-            return false;
+            return count;
         }
 
         if(inputArray[row][col]== "W")
         {
-            return false;
+            return count;
         }
         if(visited[row][col]== 1)
         {
-            return false;
+            return count;
         }
         visited[row][col]=1;
+        count++;
 
-        depthFirstSearch(inputArray,row+1,col,visited);
-        depthFirstSearch(inputArray,row-1,col,visited);
-        depthFirstSearch(inputArray,row,col+1,visited);
-        depthFirstSearch(inputArray,row,col-1,visited);
+        count+=getCountinIsland(inputArray,row+1,col,visited);
+        count+=getCountinIsland(inputArray,row-1,col,visited);
+        count+=getCountinIsland(inputArray,row,col+1,visited);
+        count+=getCountinIsland(inputArray,row,col-1,visited);
 
-        return true;
-
+        return count;
     }
-
-
 }
