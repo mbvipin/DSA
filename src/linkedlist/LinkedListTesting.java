@@ -8,7 +8,7 @@ public class LinkedListTesting {
 
         LinkedList linkedListWithElements=new LinkedList();
 
-        LinkedList linkedListWithoutElements=new LinkedList();
+
 
         linkedListWithElements.add(9);
         linkedListWithElements.add(8);

@@ -25,7 +25,7 @@ public class LinkedList {
 
     public void addAtIndex(int index,int data)
     {
-        if(index >=this.size() || index <0)
+        if(index <0)
         {
             System.out.println(" Index out of bounds");
         }
