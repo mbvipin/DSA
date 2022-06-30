@@ -19,11 +19,42 @@ public class ZipperLists {
         list2.add(3);
         list2.add(4);
 
-       Node newHead= zipLists(list1.getHead(),list2.getHead());
+       //Node newHead= zipLists(list1.getHead(),list2.getHead());
 
-       TraverseLinkedList.traverse(newHead);
+       //TraverseLinkedList.traverse(newHead);
+
+        Node newHeadUsingRecursion= zipListsRecursive(list1.getHead(),list2.getHead());
+
+        TraverseLinkedList.traverse(newHeadUsingRecursion);
 
 
+
+    }
+
+    private static Node zipListsRecursive(Node head1, Node head2) {
+
+        if(head1==null && head2==null)
+        {
+            return null;
+        }
+
+        if(head1==null)
+        {
+            return head2;
+        }
+
+        if(head2==null)
+        {
+            return head1;
+        }
+
+        Node next1= head1.next;
+        Node next2=head2.next;
+
+        head1.next=head2;
+        head2.next=zipListsRecursive(next1,next2);
+
+        return head1;
 
     }
 
@@ -33,7 +64,7 @@ public class ZipperLists {
         Node current1=head1.getNext();
         Node current2=head2;
 
-        Node currentResult=head1;
+        Node currentTail=head1;
 
         int count=0;
 
@@ -41,30 +72,32 @@ public class ZipperLists {
 
             if (count % 2 == 0) {
 
-                currentResult.setNext(current2);
-                currentResult=current2;
+                currentTail.setNext(current2);
+
                 current2=current2.getNext();
                 count++;
 
             } else {
 
-                currentResult.setNext(current1);
-                currentResult=current1;
+                currentTail.setNext(current1);
+
                 current1=current1.getNext();
                 count++;
 
             }
 
+            currentTail=currentTail.getNext();
+
         }
 
         if(current1!=null)
         {
-            currentResult.setNext(current1);
+            currentTail.setNext(current1);
         }
 
         if(current2!=null)
         {
-            currentResult.setNext(current2);
+            currentTail.setNext(current2);
         }
 
 
