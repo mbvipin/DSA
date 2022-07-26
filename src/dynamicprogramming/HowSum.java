@@ -30,7 +30,7 @@ public class HowSum {
 
         if(target <0)
         {
-            cache.put(target,null);
+
             return null;
         }
 
