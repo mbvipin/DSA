@@ -1,12 +1,16 @@
 package dynamicprogramming;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class BestSum {
 
     public static void main(String[] args) {
 
-        Map<Integer,List<Integer>> cache=new HashMap<>();
+        Map<Integer,List<Integer>> cache1=new HashMap<>();
+        Map<Integer,List<Integer>> cache2=new HashMap<>();
+        Map<Integer,List<Integer>> cache3=new HashMap<>();
+        Map<Integer,List<Integer>> cache4=new HashMap<>();
 
         List<Integer> inputList1= Arrays.asList(3,5,2);
 
@@ -14,9 +18,12 @@ public class BestSum {
 
         List<Integer> inputList3= Arrays.asList(7,14);
 
-        //System.out.println(bestSum(8,inputList1,cache));
-        //System.out.println(bestSum(8,inputList2,cache));
-        System.out.println(bestSum(300,inputList3,cache));
+        List<Integer> inputList4= Arrays.asList(1,4,5);
+
+        System.out.println(bestSum(8,inputList1,cache1));
+        System.out.println(bestSum(8,inputList2,cache2));
+        System.out.println(bestSum(300,inputList3,cache3));
+        System.out.println(bestSum(8,inputList4,cache4));
 
     }
 
@@ -38,13 +45,13 @@ public class BestSum {
         }
 
         List<Integer> bestSum=null;
+        List<Integer> resultInPath=null;
 
         for(int number: inputList)
         {
 
             int targetInPath=target-number;
-
-            List<Integer> resultInPath= bestSum(targetInPath,inputList,cache);
+            resultInPath= bestSum(targetInPath,inputList,cache);
 
             if(resultInPath!=null && (bestSum==null || bestSum.size() > resultInPath.size()+1))
                 {
@@ -54,8 +61,8 @@ public class BestSum {
 
             }
 
-        cache.put(target,bestSum);
-        return bestSum;
+        cache.putIfAbsent(target,bestSum);
+        return bestSum!=null? new ArrayList<>(bestSum):null;
 
     }
 }
