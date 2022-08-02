@@ -11,6 +11,7 @@ public class BestSum {
         Map<Integer,List<Integer>> cache2=new HashMap<>();
         Map<Integer,List<Integer>> cache3=new HashMap<>();
         Map<Integer,List<Integer>> cache4=new HashMap<>();
+        Map<Integer,List<Integer>> cache5=new HashMap<>();
 
         List<Integer> inputList1= Arrays.asList(3,5,2);
 
@@ -20,10 +21,13 @@ public class BestSum {
 
         List<Integer> inputList4= Arrays.asList(1,4,5);
 
+        List<Integer> inputList5= Arrays.asList(5,3,4,7);
+
         System.out.println(bestSum(8,inputList1,cache1));
         System.out.println(bestSum(8,inputList2,cache2));
         System.out.println(bestSum(300,inputList3,cache3));
         System.out.println(bestSum(8,inputList4,cache4));
+        System.out.println(bestSum(7,inputList5,cache5));
 
     }
 
