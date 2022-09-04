@@ -13,6 +13,40 @@ public class DoublyLinkedList {
 
     }
 
+    public boolean remove (int element)
+    {
+        if(this.head==null)
+        {
+            return false;
+        }
+
+        if(head.getData()==element)
+        {
+            this.head=this.head.getNext();
+            this.head=null;
+            return true;
+        }
+
+        DoublyLinkedNode current=this.head;
+
+        while(current!=null)
+        {
+            if(current.getData()==element)
+            {
+                current.getPrev().setNext(current.getNext());
+                current.getNext().setPrev(current.getPrev());
+                return true;
+            }
+
+            current=current.getNext();
+        }
+
+
+
+  return false;
+
+    }
+
     public void add(int element)
     {
         DoublyLinkedNode newNode=new DoublyLinkedNode();

@@ -16,5 +16,8 @@ public class DoublyLinkedListTesting {
         newList.addAtIndex(2,11);
         System.out.println(newList.toString());
 
+        newList.remove(11);
+        System.out.println(newList.toString());
+
     }
 }
