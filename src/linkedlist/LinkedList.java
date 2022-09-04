@@ -22,6 +22,89 @@ public class LinkedList {
         this.head = head;
     }
 
+    public boolean remove(int data)
+    {
+        if(head ==null)
+        {
+            return false;
+        }
+
+        if(head.data==data)
+        {
+            this.head=head.next;
+            return true;
+
+        }
+
+
+
+        Node pointerOne= this.head;
+        Node pointerTwo= this.head.next;
+
+        Node toBeDeleted=null;
+
+        while( pointerTwo !=null)
+        {
+            if(pointerTwo.data==data)
+            {
+                toBeDeleted=pointerTwo;
+                pointerTwo=pointerTwo.next;
+                break;
+            }
+
+            pointerOne=pointerOne.next;
+            pointerTwo=pointerTwo.next;
+
+        }
+
+        if(toBeDeleted!=null)
+        {
+            pointerOne.next=toBeDeleted.next;
+            return true;
+        }
+
+        return false;
+    }
+
+    public void add (int data)
+    {
+        Node newNode=new Node(data);
+        if( head ==null)
+        {
+            this.head=newNode;
+        }
+
+        else
+        {
+            newNode.setNext(this.head);
+            this.head=newNode;
+        }
+
+
+
+
+    }
+
+    public Node findNodeAtIndex(int index)
+    {
+        Node current=this.head;
+        int pointer=0;
+
+
+
+        while(current.next!=null)
+        {
+            current=current.getNext();
+            pointer=pointer+1;
+            if(pointer==index)
+            {
+                return current;
+            }
+        }
+
+        return null;
+    }
+
 
     public void addAtIndex(int index,int data)
     {
@@ -112,24 +195,7 @@ public class LinkedList {
     }
 
 
-    public void add (int data)
-    {
-        Node newNode=new Node(data);
-        if( head ==null)
-        {
-            this.head=newNode;
-        }
 
-        else
-        {
-            newNode.setNext(this.head);
-            this.head=newNode;
-        }
-
-
-
-
-    }
 
 
 
@@ -190,22 +256,5 @@ public class LinkedList {
         return linkedList.toString();
     }
 
-    public Node findNodeAtIndex(int index)
-    {
-        if( index >= this.size() || index <0)
-        {
-            return null;
-        }
-        Node current=this.head;
 
-        while(current!=null && index >0)
-        {
-            current=current.getNext();
-            index--;
-
-        }
-
-        return current;
-
-    }
 }

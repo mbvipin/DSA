@@ -8,21 +8,42 @@ public class LinkedListTesting {
 
         LinkedList linkedListWithElements=new LinkedList();
 
-
-
-        linkedListWithElements.add(9);
-        linkedListWithElements.add(8);
+        linkedListWithElements.add(13);
         linkedListWithElements.add(7);
-        linkedListWithElements.add(6);
+        linkedListWithElements.add(23);
+        linkedListWithElements.add(5);
 
-        printResults(linkedListWithElements);
-        //printResults(linkedListWithoutElements);
-
-        linkedListWithElements.addAtIndex(2,83);
+        System.out.println("Testing the functionality to add elements to the head of the linkedlist");
         printResults(linkedListWithElements);
 
-        linkedListWithElements.deleteAtIndex(2);
+        System.out.println("Testing the functionality to add element at a particular index");
+
+        linkedListWithElements.addAtIndex(2,11);
         printResults(linkedListWithElements);
+
+        System.out.println("Testing the functionality to remove an element");
+        linkedListWithElements.remove(5);
+        printResults(linkedListWithElements);
+
+
+
+/**
+ *         linkedListWithElements.add(9);
+ *         linkedListWithElements.add(8);
+ *         linkedListWithElements.add(7);
+ *         linkedListWithElements.add(6);
+ *
+ *         printResults(linkedListWithElements);
+ *         printResults(linkedListWithoutElements);
+ *
+ *         linkedListWithElements.addAtIndex(2,83);
+ *         printResults(linkedListWithElements);
+ *
+ *         linkedListWithElements.deleteAtIndex(2);
+ *         printResults(linkedListWithElements);
+ *
+ *
+ */
 
 
 
