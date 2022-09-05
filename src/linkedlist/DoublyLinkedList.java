@@ -22,8 +22,9 @@ public class DoublyLinkedList {
 
         if(head.getData()==element)
         {
-            this.head=this.head.getNext();
-            this.head=null;
+            DoublyLinkedNode newHead=this.head.getNext();
+            newHead.setPrev(null);
+            this.head=newHead;
             return true;
         }
 
