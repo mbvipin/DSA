@@ -17,6 +17,31 @@ public class DoublyLinkedList {
 
     }
 
+    public int peekFirst()
+    {
+        if(isEmpty())
+        {
+            throw new RuntimeException("List is Empty");
+        }
+        else
+        {
+            return this.head.getData();
+        }
+    }
+
+
+    public int peekLast()
+    {
+        if(isEmpty())
+        {
+            throw new RuntimeException("List is Empty");
+        }
+        else
+        {
+            return this.tail.getData();
+        }
+    }
+
     public boolean isEmpty()
     {
         return this.size ==0;
