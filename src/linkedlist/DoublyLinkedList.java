@@ -6,6 +6,8 @@ public class DoublyLinkedList {
 
     private DoublyLinkedNode tail;
 
+    private int size;
+
     public DoublyLinkedList(DoublyLinkedNode node)
     {
         this.head=node;
@@ -14,6 +16,12 @@ public class DoublyLinkedList {
     public DoublyLinkedList() {
 
     }
+
+    public boolean isEmpty()
+    {
+        return this.size ==0;
+    }
+
 
     public boolean remove (int element)
     {
@@ -27,6 +35,7 @@ public class DoublyLinkedList {
             DoublyLinkedNode newHead=this.head.getNext();
             newHead.setPrev(null);
             this.head=newHead;
+            size--;
             return true;
         }
 
@@ -38,6 +47,7 @@ public class DoublyLinkedList {
             {
                 current.getPrev().setNext(current.getNext());
                 current.getNext().setPrev(current.getPrev());
+                size--;
                 return true;
             }
 
@@ -58,6 +68,8 @@ public class DoublyLinkedList {
         this.tail.setNext(newNode);
         this.tail=newNode;
 
+        size++;
+
     }
 
     public void addFirst(int element)
@@ -65,10 +77,19 @@ public class DoublyLinkedList {
         DoublyLinkedNode newNode=new DoublyLinkedNode();
         newNode.setData(element);
 
-        newNode.setNext(this.head);
-        this.head.setPrev(newNode);
+        if( isEmpty()) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+
+        else {
+            newNode.setNext(this.head);
+            this.head.setPrev(newNode);
+        }
 
         this.head=newNode;
+
+        size++;
 
     }
 
