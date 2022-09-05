@@ -19,5 +19,8 @@ public class DoublyLinkedListTesting {
         newList.remove(11);
         System.out.println(newList.toString());
 
+        newList.addLast(10);
+        System.out.println(newList.toString());
+
     }
 }
