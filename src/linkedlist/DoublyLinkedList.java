@@ -58,7 +58,17 @@ public class DoublyLinkedList {
         this.tail.setNext(newNode);
         this.tail=newNode;
 
+    }
 
+    public void addFirst(int element)
+    {
+        DoublyLinkedNode newNode=new DoublyLinkedNode();
+        newNode.setData(element);
+
+        newNode.setNext(this.head);
+        this.head.setPrev(newNode);
+
+        this.head=newNode;
 
     }
 

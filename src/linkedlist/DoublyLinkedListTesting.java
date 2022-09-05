@@ -22,5 +22,8 @@ public class DoublyLinkedListTesting {
         newList.addLast(10);
         System.out.println(newList.toString());
 
+        newList.addFirst(100);
+        System.out.println(newList.toString());
+
     }
 }
