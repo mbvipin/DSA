@@ -25,5 +25,18 @@ public class DoublyLinkedListTesting {
         newList.addFirst(100);
         System.out.println(newList.toString());
 
+
+
+
+        System.out.println( newList.removeFirst());
+        System.out.println(newList.removeLast());
+
+        DoublyLinkedList newListWithOneElement=new DoublyLinkedList();
+        newListWithOneElement.add(1);
+        System.out.println(newListWithOneElement.removeFirst());
+
+        newListWithOneElement.add(5);
+        System.out.println(newListWithOneElement.removeLast());
+
     }
 }

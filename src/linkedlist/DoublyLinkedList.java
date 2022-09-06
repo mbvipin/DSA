@@ -17,6 +17,60 @@ public class DoublyLinkedList {
 
     }
 
+    public int removeLast()
+    {
+        if(isEmpty())
+        {
+            throw new RuntimeException("Empty List");
+        }
+
+        size--;
+
+        DoublyLinkedNode removedNode=this.tail;
+
+        if(isEmpty())
+        {
+            this.head=null;
+            this.tail=null;
+        }
+
+        else {
+            this.tail = this.tail.getPrev();
+            this.tail.setNext(null);
+        }
+
+        return removedNode.getData();
+
+
+    }
+
+    public int removeFirst()
+    {
+        if(isEmpty())
+        {
+            throw new RuntimeException("Empty List");
+        }
+
+        size--;
+
+        DoublyLinkedNode removedNode=this.head;
+
+        if(isEmpty())
+        {
+            this.head=null;
+            this.tail=null;
+        }
+
+        else {
+            this.head = this.head.getNext();
+            this.head.setPrev(null);
+        }
+
+        return removedNode.getData();
+
+
+    }
+
     public int peekFirst()
     {
         if(isEmpty())
@@ -137,6 +191,7 @@ public class DoublyLinkedList {
 
         }
 
+        size++;
 
     }
 
@@ -199,7 +254,7 @@ public class DoublyLinkedList {
 
 
 
-        @Override
+    @Override
     public String toString() {
 
         StringBuilder linkedList=new StringBuilder();
@@ -211,7 +266,9 @@ public class DoublyLinkedList {
             if(current.getData()== this.head.getData())
             {
                 linkedList.append("Head :"+ current.getData());
-                linkedList.append("{Next: "+ current.getNext().getData()+"}");
+                if(current.getNext()!=null) {
+                    linkedList.append("{Next: " + current.getNext().getData() + "}");
+                }
             }
 
             else if(current.getNext()!= null)
