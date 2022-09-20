@@ -11,10 +11,12 @@ public class DoublyLinkedListTesting {
         newList.add(23);
         newList.add(5);
 
+
         System.out.println(newList.toString());
 
         newList.addAtIndex(2,11);
-        System.out.println(newList.toString());
+        newList.printIndexAndData();
+
 
         newList.remove(11);
         System.out.println(newList.toString());
@@ -24,6 +26,7 @@ public class DoublyLinkedListTesting {
 
         newList.addFirst(100);
         System.out.println(newList.toString());
+
 
 
 
@@ -45,15 +48,29 @@ public class DoublyLinkedListTesting {
         // Adding Back
         newList.addFirst(13);
 
-        System.out.println("Before Removing at Index"+newList.toString());
+
+
+        System.out.println("Before Removing element at Index 1");
+        newList.printIndexAndData();
         System.out.println(newList.removeAtIndex(1));
-        System.out.println("After Removing at Index"+newList.toString());
+        System.out.println("After Removing at Index 1");
+        newList.printIndexAndData();
 
         newList.addAtIndex(1,7);
 
-        System.out.println("Before Removing at Index"+newList.toString());
-        System.out.println(newList.removeAtIndex(4));
-        System.out.println("After Removing at Index"+newList.toString());
+        System.out.println("Before Removing element at Index 3");
+        newList.printIndexAndData();
+        System.out.println(newList.removeAtIndex(3));
+        System.out.println("After Removing at Index 3");
+        newList.printIndexAndData();
+
+        newList.addLast(5);
+
+        System.out.println("After Removing at Index 0");
+        newList.printIndexAndData();
+        System.out.println(newList.removeAtIndex(0));
+        System.out.println("After Removing at Index 0");
+        newList.printIndexAndData();
 
 
     }

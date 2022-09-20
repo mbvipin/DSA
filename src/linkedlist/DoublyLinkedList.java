@@ -268,14 +268,16 @@ public class DoublyLinkedList {
 
 
 
-        while(current.getNext()!=null)
+        while(current!=null)
         {
-            current=current.getNext();
-            pointer=pointer+1;
+
             if(pointer==index)
             {
                 return current;
             }
+
+            current=current.getNext();
+            pointer=pointer+1;
         }
 
         return null;
@@ -355,6 +357,28 @@ public class DoublyLinkedList {
 
 
         return linkedList.toString();
+    }
+
+    public void printIndexAndData() {
+
+        StringBuilder linkedList=new StringBuilder();
+
+        DoublyLinkedNode current=this.head;
+
+        int index=0;
+
+        while(current!=null)
+        {
+            System.out.println("Index :"+ index);
+            System.out.println(" Data:"+ current.getData());
+            System.out.println(System.lineSeparator());
+            index++;
+            current=current.getNext();
+
+        }
+
+
+
     }
 
 
