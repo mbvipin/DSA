@@ -17,6 +17,53 @@ public class DoublyLinkedList {
 
     }
 
+    public boolean removeAtIndex(int index)
+    {
+        if(index<0 && index > this.size )
+        {
+            throw new RuntimeException("Invalid Index");
+        }
+
+        if( index <=this.size/2)
+        {
+            DoublyLinkedNode node= this.head;
+
+            for(int i=0; i<=size/2; i++)
+            {
+
+                if(i==index)
+                {
+                    remove(node);
+                    return true;
+                }
+
+                node=node.getNext();
+
+            }
+
+        }
+
+        else
+        {
+            DoublyLinkedNode node= this.tail;
+
+            for(int j= (size/2)+1; j< size-1 ; j++)
+            {
+                if( j== index)
+                {
+                    remove(node);
+                    return true;
+                }
+
+                node =node.getPrev();
+
+            }
+        }
+
+        return false;
+
+    }
+
     public int removeLast()
     {
         if(isEmpty())
@@ -101,6 +148,24 @@ public class DoublyLinkedList {
         return this.size ==0;
     }
 
+    public boolean remove (DoublyLinkedNode node)
+    {
+        if(node==null)
+        {
+            throw new RuntimeException("Invalid input");
+        }
+
+        if( node.getPrev()==null) removeFirst();
+        if(node.getNext()==null) removeLast();
+
+        return remove(node.getData());
+
+
+
+
+
+    }
+
 
     public boolean remove (int element)
     {
@@ -108,6 +173,7 @@ public class DoublyLinkedList {
         {
             return false;
         }
+
 
         if(head.getData()==element)
         {

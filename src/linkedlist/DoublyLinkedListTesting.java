@@ -38,5 +38,23 @@ public class DoublyLinkedListTesting {
         newListWithOneElement.add(5);
         System.out.println(newListWithOneElement.removeLast());
 
+        System.out.println("Before Removing at Index"+newList.toString());
+        System.out.println(newList.removeAtIndex(0));
+        System.out.println("After Removing at Index"+newList.toString());
+
+        // Adding Back
+        newList.addFirst(13);
+
+        System.out.println("Before Removing at Index"+newList.toString());
+        System.out.println(newList.removeAtIndex(1));
+        System.out.println("After Removing at Index"+newList.toString());
+
+        newList.addAtIndex(1,7);
+
+        System.out.println("Before Removing at Index"+newList.toString());
+        System.out.println(newList.removeAtIndex(4));
+        System.out.println("After Removing at Index"+newList.toString());
+
+
     }
 }
