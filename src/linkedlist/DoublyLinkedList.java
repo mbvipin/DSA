@@ -1,6 +1,9 @@
 package linkedlist;
 
-public class DoublyLinkedList {
+import java.util.Iterator;
+import java.util.function.Consumer;
+
+public class DoublyLinkedList implements Iterable {
 
   private DoublyLinkedNode head;
 
@@ -17,9 +20,38 @@ public class DoublyLinkedList {
 
     }
 
+    public boolean contains(int element)
+    {
+        return indexOf(element)!=-1;
+    }
+
+    public int indexOf(int element)
+    {
+
+        DoublyLinkedNode current=this.head;
+
+        int index=0;
+
+        while(current!=null)
+        {
+            if(current.getData()==element)
+            {
+                return index;
+            }
+
+            index++;
+            current=current.getNext();
+        }
+
+        return -1;
+    }
+
+
+
+
     public boolean removeAtIndex(int index)
     {
-        if(index<0 && index > this.size )
+        if(index<0 && index > this.size-1 )
         {
             throw new RuntimeException("Invalid Index");
         }
@@ -382,6 +414,23 @@ public class DoublyLinkedList {
     }
 
 
+    @Override
+    public Iterator iterator() {
+        return new Iterator() {
 
+            private DoublyLinkedNode current = head;
 
+            @Override
+            public boolean hasNext() {
+                return current != null;
+            }
+
+            @Override
+            public Object next() {
+                int data = current.getData();
+                current = current.getNext();
+                return data;
+            }
+        };
+    }
 }
